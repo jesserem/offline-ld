@@ -1,0 +1,8 @@
+[instance]
+problem_instance = "/fjsp/1_Brandimarte/Mk01.fjs" # configure problem instance to be scheduled
+
+[solver]
+time_limit = 3600 # time limit for the OR-tools CP-SAT solver, in seconds
+
+[output]
+plotting = true # draw ganttchart of found solution
