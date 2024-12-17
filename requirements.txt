@@ -1,0 +1,16 @@
+gurobipy==11.0.0
+gymnasium==0.28.1
+matplotlib==3.7.5
+minari==0.5.1
+networkx==3.2.1
+ortools==9.9.3963
+pandas==2.2.3
+pyrallis==0.3.1
+scipy==1.14.1
+simpy==4.1.1
+tomli==2.2.1
+torch==2.3.0
+torchrl==0.4.0
+tqdm==4.66.1
+visdom==0.2.4
+wandb==0.19.1

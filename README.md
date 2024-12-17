@@ -33,4 +33,4 @@ Training is done by either running "train_cql_qrdqn.py"" or "train_cql_sac.py". 
 This file is used to evaluate the trained models, by either calling "eval_cql_qrdqn_all.py" or "eval_cql_sac_all.py". The arguments are explained in the code itself.
 
 ## Contact
-If you have any questions, please contact me at via [email](mailto:j.v.remmerden@tue.nl).
+If you have any questions or discover a bug, please contact me at via [email](mailto:j.v.remmerden@tue.nl).

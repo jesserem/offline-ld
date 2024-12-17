@@ -8,7 +8,6 @@ from copy import deepcopy
 from dataclasses import asdict, dataclass
 from offline_jssp_rl.networks.mlp import MLP
 from Job_Shop_Scheduling_Benchmark_Environments_and_Instances.solution_methods.L2D.JSSP_Env import SJSSP
-from Job_Shop_Scheduling_Benchmark_Environments_and_Instances.solution_methods.L2D.uniform_instance_gen import uni_instance_gen
 from Job_Shop_Scheduling_Benchmark_Environments_and_Instances.data_parsers.parser_jsp_fsp import parseAndMake
 
 from typing import Any, Dict, List, Optional, Tuple
@@ -17,7 +16,6 @@ from offline_jssp_rl.utils import (
     compute_mean_std_graph as compute_mean_std,
     eval_actor_l2d_original_dqn as eval_actor_l2d,
     normalize_states,
-    masked_mean,
     set_env_seed,
     set_seed,
     wrap_env_l2d as wrap_env,
@@ -27,7 +25,6 @@ from offline_jssp_rl.utils import (
 )
 
 import minari
-import gym
 import numpy as np
 import pyrallis
 import torch
@@ -67,9 +64,8 @@ class TrainConfig:
     device: str = "cpu"
     n_jobs: int = 6 # Number of jobs
     n_machines: int = 6 # Number of machines
-    eval_instances: str = f"./Job_Shop_Scheduling_Benchmark_Environments_and_Instances/solution_methods/L2D/test_generated_data/generatedData{n_jobs}_{n_machines}_Seed300.npy"
-
-    dataset: str = f"jsspl2d-norm_reward_05_noisy_prob_01-v0"
+    eval_instances: str = f"./eval_generated_data/generatedData6_6_Seed300.npy"
+    dataset: str = f"L2D/6_6/Small_Dataset-v0"
     eval_attributes: List[str] = ('last_time_step',)
 
     seed: int = 4  # Sets Gym, PyTorch and Numpy seeds
@@ -1220,7 +1216,7 @@ def minari_dataset_to_dict(minari_list: List[minari.MinariDataset], switch_mask:
                 mask = ~mask
                 mask[-1] = ~mask[-1]
 
-            for i in range(epi.total_timesteps):
+            for i in range(epi.actions.shape[0]):
                 # omega = omegas[1]
                 fake_action = epi.actions[i]
 

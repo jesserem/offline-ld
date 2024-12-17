@@ -24,7 +24,6 @@ import pyrallis
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import wandb
 from offline_jssp_rl.networks.gin import GraphCNN, g_pool_cal, aggr_obs
 
 TensorBatch = List[torch.Tensor]

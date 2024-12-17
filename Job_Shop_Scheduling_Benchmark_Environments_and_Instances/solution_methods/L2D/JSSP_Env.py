@@ -4,7 +4,6 @@ from pathlib import Path
 # import gym
 import gymnasium as gym
 import numpy as np
-from gym.utils import EzPickle
 from gymnasium.spaces import Box, Discrete, Dict, MultiBinary, MultiDiscrete
 
 
